@@ -3,9 +3,25 @@ void setup() {
   noLoop(); //stops the draw() function from repeating
 }
 void draw() {
-  //your code here
+  boolean shift = true;
+  for(int y = 0; y < 600; y = y + 25){
+    for(int x = 0; x < 600; x = x + 16){
+      if (shift == true)
+        scale(x + 10, y);
+      else 
+        scale(x, y);
+    }
+    if(shift == true)
+      shift = false;
+    else
+      shift = true;
+  }
 }
 void scale(int x, int y) {
-  //your code here
+  noStroke();
+  fill((int)(Math.random() * 256),(int)(Math.random() * 256),(int)(Math.random() * 256));
+  triangle(x, y - 26, x - 13, y, x + 13, y);
+  arc(x, y, 25, 25, 0, PI);
+  fill((int)(Math.random() * 256),(int)(Math.random() * 256),(int)(Math.random() * 256));
+  ellipse(x, y, 5, 5);
 }
-
